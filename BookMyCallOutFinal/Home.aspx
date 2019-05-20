@@ -7,12 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+    <link rel="stylesheet" href="StyleSheet1.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <style>
-body {font-family: Arial, Helvetica, sans-serif;}
+body {font-family: Arial, Helvetica, sans-serif;
+      background-color:darkgrey; 
+}
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
@@ -136,6 +138,8 @@ span.psw {
 </head>
 <body>
 
+    <form id="form1" runat="server">
+<img style="background-size:50px" src="BookMyCallOutLOGO2.png" alt="Avatar" class="avatar">
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -146,21 +150,21 @@ span.psw {
       <li><a href="Tickets.aspx">Tickets</a></li>
       <li><a href="About.aspx">About</a></li>
       <li><a href="Contact.aspx">Contact</a></li>
+      
     </ul>
-    <button type="button"  style="background-color:darkgray; border-color:black; " class="btn btn-danger navbar-btn" onclick="document.getElementById('id01').style.display='block'" runat="server" >Login</button>
+      <ul class="nav navbar-nav navbar-right">
+        <li><button id="logout1" runat="server" onserverclick="Logout1"><span class="glyphicon glyphicon-log-in"></span> Logout</button></li>
+      </ul>
+    <button type="button" id="loginBtn2" style="background-color:darkgray; border-color:black; " class="btn btn-danger navbar-btn" onclick="document.getElementById('id01').style.display='block'" runat="server" >Login</button>
   </div>
 </nav>
 
-<div class="container">
-  <h2>Navbar Button</h2>
-  <p>Use the navbar-btn class on a button to vertically align (same padding as links) it inside the navbar.</p>
-</div>
 
 <!--<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>-->
 
 <div id="id01" class="modal">
   
-  <form class="modal-content animate" action="/action_page.php">
+ 
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="BookMyCallOutLOGO2.png" alt="Avatar" class="avatar">
@@ -168,14 +172,14 @@ span.psw {
 
     <div class="container">
       <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <input type="text" runat="server" id="textUser" placeholder="Enter Username" name="uname" required>
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input type="password" runat="server" id="textPass" placeholder="Enter Password" name="psw" required>
         
-      <button type="submit">Login</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
+      <button  type="button" runat="server" id="loginBtn" onserverclick="BtnLogin">Login</button>
+      
+        <label type="label" runat="server" id="errorLabel" name="remember">
       </label>
     </div>
 
@@ -183,7 +187,7 @@ span.psw {
       <button type="button" style="background-color:darkgray; border-color:black; " onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
       <span class="psw">Register <a href="Register.aspx">here!</a></span>
     </div>
-  </form>
+  
 </div>
 
 <script>
@@ -198,5 +202,13 @@ window.onclick = function(event) {
 }
 </script>
 
-</body>
+      <div class="footer">
+  <p>Website designed by FM Botes and R Miller. Visit our Facebook Page <a href="https://www.facebook.com/book.callout.5">here!</a></p>
+</div>
+        <asp:Panel ID="Panel1" runat="server" Height="229px">
+            <asp:Label ID="Label1" runat="server" Text="Label" Font-Bold="True" Font-Names="Copperplate Gothic Bold" ForeColor="#333333" Font-Size="XX-Large"></asp:Label>
+            <br />
+        </asp:Panel>
+    </form>
+      </body>
 </html>

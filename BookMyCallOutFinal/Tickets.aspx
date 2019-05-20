@@ -7,11 +7,13 @@
   <title>Tickets</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="StyleSheet1.css"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
+    <form id="form1" runat="server">
     <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -30,11 +32,19 @@
     
 <div  class="container">
   <h2>Tickets</h2>
-  <button type="button" class="btn btn-primary" runat="server"  onclick="bNewTicket" >New Ticket</button>
-  <button  type="button" class="btn btn-primary " runat="server" onclick="bAvtiveTicket">Active Tickets</button>
-  <button type="button" class="btn btn-primary " runat="server" onclick="bTicketHistory" >Ticket History</button>
-  <button  type="button" class="btn btn-primary" runat="server"onclick="bCancelTicket">Cancel Ticket</button>
+    <button id="button1" class="btn btn-primary" runat="server" onserverclick="NewTickets" >New Tickets</button>
+    <button id="button2" class="btn btn-primary" runat="server" onserverclick="ActiveTickets">Active Tickets</button>
+    <button id="button3" class="btn btn-primary" runat="server" onserverclick="TicketHistory" >Ticket History</button>
+    <button id="button4" class="btn btn-primary" runat="server" onserverclick="CancelTickets" >Cancel Tickets</button>
+  
 </div>
 
+        <p>
+            &nbsp;</p>
+        <asp:Label ID="Label1" runat="server"></asp:Label>
+    </form>
+      <div class="footer">
+  <p>Website designed by FM Botes and R Miller. Visit our Facebook Page <a href="https://www.facebook.com/book.callout.5">here!</a></p>
+</div>
 </body>
 </html>

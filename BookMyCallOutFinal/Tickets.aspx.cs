@@ -11,24 +11,27 @@ namespace BookMyCallOutFinal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["UserID"] == null)
+            {
+                Response.Redirect("NotLoggedIn.aspx");
+            }
         }
 
-        protected void bNewTicket(object sender, EventArgs e)
+        protected void NewTickets(object sender, EventArgs e)
         {
-            Response.Redirect("~/NewTickets.aspx");
+            Response.Redirect("NewTickets.aspx");
         }
-        protected void bAvtiveTicket(object sender, EventArgs e)
+        protected void ActiveTickets(object sender, EventArgs e)
         {
-            Response.Redirect("~/ActiveTickets.aspx");
+            Response.Redirect("ActiveTickets.aspx");  
         }
-        protected void bTicketHistory(object sender, EventArgs e)
+        protected void TicketHistory(object sender, EventArgs e)
         {
-            Response.Redirect("~/TicketHistory.aspx");
+            Response.Redirect("TicketHistory.aspx");
         }
-        protected void bCancelTicket(object sender, EventArgs e)
+        protected void CancelTickets(object sender, EventArgs e)
         {
-            Response.Redirect("~/CancelTicket.aspx");
+            Response.Redirect("CancelTicket.aspx");
         }
     }
 

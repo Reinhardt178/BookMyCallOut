@@ -67,12 +67,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AvtiveTickets.aspx" />
+    <Content Include="About.aspx" />
+    <Content Include="ActiveTickets.aspx" />
+    <Content Include="App_Data\BookMy.mdf" />
+    <Content Include="App_Data\BookMyCallOut.mdf" />
+    <Content Include="App_Data\BookMyCallOut_log.ldf">
+      <DependentUpon>BookMyCallOut.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\BookMy_log.ldf">
+      <DependentUpon>BookMy.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\Database1.mdf" />
+    <Content Include="App_Data\Database1_log.ldf">
+      <DependentUpon>Database1.mdf</DependentUpon>
+    </Content>
     <Content Include="BookMyCallOutLOGO2.png" />
-    <Content Include="CancelTicket.aspx" />
+    <Content Include="Contact.aspx" />
     <Content Include="Home.aspx" />
-    <Content Include="Login.aspx" />
     <Content Include="NewTickets.aspx" />
+    <Content Include="NotLoggedIn.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="StyleSheet1.css" />
     <Content Include="TicketHistory.aspx" />
@@ -80,19 +93,26 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AvtiveTickets.aspx.cs">
-      <DependentUpon>AvtiveTickets.aspx</DependentUpon>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AvtiveTickets.aspx.designer.cs">
-      <DependentUpon>AvtiveTickets.aspx</DependentUpon>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CancelTicket.aspx.cs">
-      <DependentUpon>CancelTicket.aspx</DependentUpon>
+    <Compile Include="ActiveTickets.aspx.cs">
+      <DependentUpon>ActiveTickets.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CancelTicket.aspx.designer.cs">
-      <DependentUpon>CancelTicket.aspx</DependentUpon>
+    <Compile Include="ActiveTickets.aspx.designer.cs">
+      <DependentUpon>ActiveTickets.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
@@ -101,19 +121,19 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
     <Compile Include="NewTickets.aspx.cs">
       <DependentUpon>NewTickets.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="NewTickets.aspx.designer.cs">
       <DependentUpon>NewTickets.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NotLoggedIn.aspx.cs">
+      <DependentUpon>NotLoggedIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NotLoggedIn.aspx.designer.cs">
+      <DependentUpon>NotLoggedIn.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">

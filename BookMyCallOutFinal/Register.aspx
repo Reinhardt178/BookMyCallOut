@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="StyleSheet1.css"/>
 <style>
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -70,31 +71,42 @@ a {
 </style>
 </head>
 <body>
+    
 
-<form action="/action_page.php">
+    <form id="form1" runat="server">
+    
+
   <div class="container">
     <h1>Welcome to BookMyCallOuts Register page.</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
     <label for="Username"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="Username" required>
+    <input id="Username" runat="server" type="text" placeholder="Enter Username" name="Username" required>
 
     <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
+    <input id="Email" runat="server" type="text" placeholder="Enter Email" name="email" required>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input id="Password" runat="server" type="password" placeholder="Enter Password" name="psw" required>
 
     <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+    <input id="rePassword" runat="server" type="password" placeholder="Repeat Password" name="psw-repeat" required>
     <hr>
-    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+      
 
-    <button type="submit" style="background-color:darkgray; border-color:black; "  class="registerbtn">Register</button>
+    <button type="submit" style="background-color:darkgray; border-color:black; " runat="server" onserverclick="Registrationbtn"  class="registerbtn">Register</button>
   </div>
   
   
-</form>
+
+
+    </form>
+  
+  <div class="footer">
+  <p>Website designed by FM Botes and R Miller. Visit our Facebook Page <a href="https://www.facebook.com/book.callout.5">here!</a></p>
+</div>
+
 
 </body>
 </html>
