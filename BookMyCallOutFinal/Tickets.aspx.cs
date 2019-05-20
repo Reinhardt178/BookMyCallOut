@@ -29,10 +29,13 @@ namespace BookMyCallOutFinal
         {
             Response.Redirect("TicketHistory.aspx");
         }
-        protected void CancelTickets(object sender, EventArgs e)
+        protected void Logout1(object sender, EventArgs e)
         {
-            Response.Redirect("CancelTicket.aspx");
+            Session.Contents.RemoveAll();
+            Response.Redirect("Home.aspx");
         }
+
+
     }
 
 }

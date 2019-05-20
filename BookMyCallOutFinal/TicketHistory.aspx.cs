@@ -20,11 +20,11 @@ namespace BookMyCallOutFinal
             string sql;
             if (Session["UserID"].ToString() == "1")
             {
-                sql = "Select * from Tickets";
+                sql = "Select TicketID, UserID, TimeDateLogged, Status, Description, Priority from Tickets";
             }
             else
             {
-                sql = "Select * from Tickets where UserID= '" + Session["UserID"].ToString()+ "'";
+                sql = "Select TicketID, TimeDateLogged, Status, Description, Priority from Tickets where UserID= '" + Session["UserID"].ToString()+ "'";
             }
             SqlCommand cmd = new SqlCommand(sql, conn);
             adap = new SqlDataAdapter();

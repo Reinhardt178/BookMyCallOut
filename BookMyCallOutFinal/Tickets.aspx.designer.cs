@@ -22,6 +22,15 @@ namespace BookMyCallOutFinal {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// logout1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton logout1;
+        
+        /// <summary>
         /// button1 control.
         /// </summary>
         /// <remarks>
@@ -47,15 +56,6 @@ namespace BookMyCallOutFinal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton button3;
-        
-        /// <summary>
-        /// button4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton button4;
         
         /// <summary>
         /// Label1 control.

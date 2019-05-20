@@ -19,7 +19,7 @@ namespace BookMyCallOutFinal
         }
         protected void Registrationbtn(object sender, EventArgs e)
         {
-            if (Password.Value.ToString() == rePassword.Value.ToString())
+            if (Password.Value.ToString() == rePassword.Value.ToString() && Username.Value.ToString() != null && Password.Value.ToString().Length >= 6 )
             {
                 string sql = "insert into Users(UserName,Email,PassWord) values (@UserName,@Email,@PassWord)";
                 cmd = new SqlCommand(sql, conn);
@@ -42,7 +42,9 @@ namespace BookMyCallOutFinal
             }
             else
             {
-                Label1.Text = "Passwords do not match!!!";
+                Label1.Text = "Username to short, passwords don't match or password is to sort must be atleast 6 characters long";
+                Username.Value = null;
+                Email.Value = null;
             }
 
         }

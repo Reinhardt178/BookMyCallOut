@@ -7,10 +7,18 @@
   <title>About</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="StyleSheet1.css"/>
+  <link rel="stylesheet" href="StyleSheet1.css"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;
+      background-color:darkgrey; 
+}
+.container{
+    color:black;
+}
+</style>
 </head>
 <body>
     <nav class="navbar navbar-inverse">
@@ -24,7 +32,7 @@
       <li><a href="About.aspx">About</a></li>
       <li><a href="Contact.aspx">Contact</a></li>
     </ul>
-    <button type="button"  style="background-color:darkgray; border-color:black; " class="btn btn-danger navbar-btn" onclick="document.getElementById('id01').style.display='block'" runat="server" >Login</button>
+    
   </div>
 </nav>
   

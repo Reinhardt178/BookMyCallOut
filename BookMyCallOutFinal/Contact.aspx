@@ -11,6 +11,15 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+body {font-family: Arial, Helvetica, sans-serif;
+      background-color:darkgrey; 
+}
+.container{
+    color:black;
+}
+
+</style>
 </head>
 
 <body>

@@ -14,7 +14,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="Home.aspx">BookMyCallOut</a>
@@ -24,7 +24,11 @@
       <li><a href="Tickets.aspx">Tickets</a></li>
       <li><a href="About.aspx">About</a></li>
       <li><a href="Contact.aspx">Contact</a></li>
+      
     </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><button id="logout1" runat="server" onserverclick="Logout1"><span class="glyphicon glyphicon-log-in"></span> Logout</button></li>
+      </ul>
     
   </div>
 </nav>
@@ -32,11 +36,10 @@
     
 <div  class="container">
   <h2>Tickets</h2>
-    <button id="button1" class="btn btn-primary" runat="server" onserverclick="NewTickets" >New Tickets</button>
-    <button id="button2" class="btn btn-primary" runat="server" onserverclick="ActiveTickets">Active Tickets</button>
-    <button id="button3" class="btn btn-primary" runat="server" onserverclick="TicketHistory" >Ticket History</button>
-    <button id="button4" class="btn btn-primary" runat="server" onserverclick="CancelTickets" >Cancel Tickets</button>
-  
+    <button id="button1" style="background-color:darkgrey; border-color:black;" class="btn btn-primary" runat="server" onserverclick="NewTickets" >New Tickets</button>
+    <button id="button2" style="background-color:darkgrey; border-color:black;" class="btn btn-primary" runat="server" onserverclick="ActiveTickets">Active Tickets</button>
+    <button id="button3" style="background-color:darkgrey; border-color:black;" class="btn btn-primary" runat="server" onserverclick="TicketHistory" >Ticket History</button>
+    
 </div>
 
         <p>

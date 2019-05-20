@@ -92,7 +92,7 @@ a {
     <label for="psw-repeat"><b>Repeat Password</b></label>
     <input id="rePassword" runat="server" type="password" placeholder="Repeat Password" name="psw-repeat" required>
     <hr>
-    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+    <asp:Label ID="Label1" runat="server"></asp:Label>
       
 
     <button type="submit" style="background-color:darkgray; border-color:black; " runat="server" onserverclick="Registrationbtn"  class="registerbtn">Register</button>

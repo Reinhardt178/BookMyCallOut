@@ -15,41 +15,49 @@ namespace BookMyCallOutFinal
         SqlDataAdapter adap;
         DataSet ds;
         protected void Page_Load(object sender, EventArgs e)
-        {
-            int id = Convert.ToInt32(Session["UserID"]);
-            if ( id == 1)
+        {try
             {
-                conn.Open();
-                string sql = "select TicketID, TimeDateLogged, Description, Priority from Tickets where Status ='Active'";
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                adap = new SqlDataAdapter();
-                ds = new DataSet();
+                if (Session["UserID"].ToString() == "1")
+                {
+                    string sql;
+                    conn.Open();
+                    sql = "select TicketID, UserID, TimeDateLogged, Description, Priority from Tickets where Status ='Active'";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    adap = new SqlDataAdapter();
+                    ds = new DataSet();
 
 
-                cmd = new SqlCommand(sql, conn);
-                adap.SelectCommand = cmd;
-                adap.Fill(ds);
-                GridView1.DataSource = ds;
-                GridView1.DataBind();
-                conn.Close();
+                    cmd = new SqlCommand(sql, conn);
+                    adap.SelectCommand = cmd;
+                    adap.Fill(ds);
+                    GridView1.DataSource = ds;
+                    GridView1.DataBind();
+                    conn.Close();
+                }
+                else
+                {
+                    conn.Open();
+                    string sql = "select TicketID, TimeDateLogged, Description, Priority from Tickets where UserID ='" + Session["UserID"].ToString() + "' and Status ='Active'";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    adap = new SqlDataAdapter();
+                    ds = new DataSet();
+
+
+                    cmd = new SqlCommand(sql, conn);
+                    adap.SelectCommand = cmd;
+                    adap.Fill(ds);
+                    GridView1.DataSource = ds;
+                    GridView1.DataBind();
+                    conn.Close();
+                }
             }
-            else
+            catch (SqlException err)
             {
-                conn.Open();
-                string sql = "select TicketID, TimeDateLogged, Description, Priority from Tickets where UserID ='" + Session["UserID"].ToString() + "' and Status ='Active'";
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                adap = new SqlDataAdapter();
-                ds = new DataSet();
 
-
-                cmd = new SqlCommand(sql, conn);
-                adap.SelectCommand = cmd;
-                adap.Fill(ds);
-                GridView1.DataSource = ds;
-                GridView1.DataBind();
-                conn.Close();
+                Response.Write(err.Message);
             }
-            
+
+
 
 
         }
@@ -65,27 +73,40 @@ namespace BookMyCallOutFinal
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string sql;
-            conn.Open();
-            sql = "DELETE FROM Tickets WHERE TicketID = '" + Label2.Text + "'";
-            SqlCommand cmd = new SqlCommand(sql, conn);
+            try
+            {
+                string sql;
+                conn.Open();
+                sql = "DELETE FROM Tickets WHERE TicketID = '" + Label2.Text + "'";
+                SqlCommand cmd = new SqlCommand(sql, conn);
 
-            adap.DeleteCommand = cmd;
-            adap.DeleteCommand.ExecuteNonQuery();
+                adap.DeleteCommand = cmd;
+                adap.DeleteCommand.ExecuteNonQuery();
+                if (Session["UserID"].ToString() == "1")
+                {
+                    sql = "select TicketID, UserID, TimeDateLogged, Description, Priority from Tickets where Status ='Active'";
+                }
+                else
+                {
+                    sql = "select TicketID, TimeDateLogged, Description, Priority from Tickets where UserID ='" + Session["UserID"].ToString() + "' and Status ='Active'";
+                }
+                adap = new SqlDataAdapter();
+                ds = new DataSet();
 
-            sql = "select TicketID, TimeDateLogged, Description, Priority from Tickets where UserID ='" + Session["UserID"].ToString() + "' and Status ='Active'";
-            adap = new SqlDataAdapter();
-            ds = new DataSet();
 
+                cmd = new SqlCommand(sql, conn);
+                adap.SelectCommand = cmd;
+                adap.Fill(ds);
+                GridView1.DataSource = ds;
+                GridView1.DataBind();
+                conn.Close();
+                this.Response.Redirect("ActiveTickets.aspx");
+            }
+            catch (SqlException err)
+            {
 
-            cmd = new SqlCommand(sql, conn);
-            adap.SelectCommand = cmd;
-            adap.Fill(ds);
-            GridView1.DataSource = ds;
-            GridView1.DataBind();
-            conn.Close();
-            this.Response.Redirect("ActiveTickets.aspx");
-
+                Response.Write(err.Message);
+            }
 
 
         }
@@ -97,34 +118,42 @@ namespace BookMyCallOutFinal
 
         protected void Button2_Click1(object sender, EventArgs e)
         {
-            if (TextBox1.Text != null)
+            try
             {
-                string sql;
-                if (Session["UserID"].ToString() == "1")
+                if (TextBox1.Text != null)
                 {
-                    sql = "Select TicketID From Tickets where TicketID like '" + TextBox1.Text + "' or Description like '" + TextBox1.Text + "' or Priority like '" + TextBox1.Text + "'";
+                    string sql;
+                    if (Session["UserID"].ToString() == "1")
+                    {
+                        sql = "Select TicketID From Tickets where TicketID like '" + TextBox1.Text + "' or Description like '" + TextBox1.Text + "' or Priority like '" + TextBox1.Text + "'";
+                    }
+                    else
+                    {
+                        sql = "Select TicketID From Tickets where UserID = '" + Session["UserID"].ToString() + "' and (Description = '" + TextBox1.Text + "' or Priority like '" + TextBox1.Text + "')";
+                    }
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd = new SqlCommand(sql, conn);
+                    double id = Convert.ToInt64(cmd.ExecuteScalar());
+                    if (id <= 0)
+                    {
+                        Label3.Text = "Error";
+                        Label2.Text = "ID not found";
+                    }
+                    else
+                    {
+                        Label3.Text = "Delete ticket with ID: ";
+                        Label2.Text = id.ToString();
+                        Button1.Visible = true;
+                        Button2.Visible = false;
+
+                    }
                 }
-                else
-                {
-                    sql = "Select TicketID From Tickets where UserID = '" + Session["UserID"].ToString() + "' and (Description = '" + TextBox1.Text + "' or Priority like '" + TextBox1.Text + "')";
-                }
-                conn.Open();
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd = new SqlCommand(sql, conn);
-                double id = Convert.ToInt64(cmd.ExecuteScalar());
-                if (id <= 0)
-                {
-                    Label3.Text = "Error";
-                    Label2.Text = "ID not found";
-                }
-                else
-                {
-                    Label3.Text = "Delete ticket with ID: ";
-                    Label2.Text = id.ToString();
-                    Button1.Visible = true;
-                    Button2.Visible = false;
-                    
-                }
+            }
+            catch (SqlException err)
+            {
+
+                Response.Write(err.Message);
             }
         }
     }

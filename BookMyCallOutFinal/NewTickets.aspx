@@ -48,8 +48,8 @@ input[type=submit]:hover {
 
 <div class="container">
     <form id="form1" runat="server">
-    <label for="fname">Name:</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+    <label for="labelNT">Enter the following:</label>
+    
 
    
 
@@ -65,7 +65,7 @@ input[type=submit]:hover {
     <textarea id="problemDescription" runat="server" name="problemDescription" placeholder="Write something.." style="height:200px"></textarea>
 
     <button type="button" runat="server" onserverclick="Submits" style="background-color:dodgerblue">Submit</button>
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="Label1" runat="server"></asp:Label>
     </form>
 </div>
       <div class="footer">

@@ -17,7 +17,7 @@ namespace BookMyCallOutFinal
             if (Session["UserID"] != null)
             {
                 loginBtn2.Style.Add("visibility", "hidden");
-                Label1.Text = "Welcome " + Session["Username"].ToString() + " to BookMyCallOut. You will now be able to use the Tickets Service!!   ";
+                Label1.Text = "Welcome " + Session["Username"].ToString() + " to BookMyCallOut. You will now be able to use the Tickets Service!!   " + Session["cookieSup"];
             }
             else
             {
@@ -27,34 +27,34 @@ namespace BookMyCallOutFinal
 
 
 
-            if (Convert.ToInt32(Session["UserID"]) > 0)
-            {
-                string id = Session["UserID"].ToString();
+            /* if (Convert.ToInt32(Session["UserID"]) > 0)
+             {
+                 string id = Session["UserID"].ToString();
 
-                int inkr;
-                HttpCookie hits = Request.Cookies[id];
-                //int len = koekies.Count;
-                if (hits != null)
-                {
-                    inkr = Convert.ToInt32(hits["Val"]) + 1;
-                    HttpCookie koek1 = new HttpCookie(id);
-                    koek1["Val"] = inkr.ToString();
-                    Label1.Text = Label1.Text + "and you have visited this site " + hits["Val"].ToString() + " times.";
-                    koek1.Expires = DateTime.Now.AddMonths(1);
-                    Response.Cookies.Add(koek1);
-                }
-                else
-                {
-                    int tel = 2;
-                    HttpCookie hits1 = new HttpCookie(id);
-                    hits1["Val"] = tel.ToString();
-                    Label1.Text = Label1.Text + "and you have visited this site " + hits1["Val"].ToString() + " times.";
-                    hits1.Expires = DateTime.Now.AddMonths(1);
-                    Response.Cookies.Add(hits1);
-                }
-            }
-        
-            
+                 int inkr;
+                 HttpCookie hits = Request.Cookies[id];
+                 //int len = koekies.Count;
+                 if (hits != null)
+                 {
+                     inkr = Convert.ToInt32(hits["Val"]) + 1;
+                     HttpCookie koek1 = new HttpCookie(id);
+                     koek1["Val"] = inkr.ToString();
+                     Label1.Text = Label1.Text + "and you have visited this site " + hits["Val"].ToString() + " times.";
+                     koek1.Expires = DateTime.Now.AddMonths(1);
+                     Response.Cookies.Add(koek1);
+                 }
+                 else
+                 {
+                     int tel = 2;
+                     HttpCookie hits1 = new HttpCookie(id);
+                     hits1["Val"] = tel.ToString();
+                     Label1.Text = Label1.Text + "and you have visited this site " + hits1["Val"].ToString() + " times.";
+                     hits1.Expires = DateTime.Now.AddMonths(1);
+                     Response.Cookies.Add(hits1);
+                 }
+             }*/
+
+
         }
         SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\mille\source\repos\BookMyCallOutFinal\BookMyCallOutFinal\App_Data\BookMy.mdf;Integrated Security=True");
         SqlCommand cmd;
@@ -81,8 +81,35 @@ namespace BookMyCallOutFinal
 
                    Session["UserID"] = id;
                    Session["Username"] = user;
-                    //Response.Redirect(Request.Url.ToString());
-                    Response.Redirect("Home.aspx");
+                    if (Convert.ToInt32(Session["UserID"]) > 0)
+                    {
+                        string id2 = Session["UserID"].ToString();
+
+                        int inkr;
+                        HttpCookie hits = Request.Cookies[id2];
+                        //int len = koekies.Count;
+                        if (hits != null)
+                        {
+                            inkr = Convert.ToInt32(hits["Val"]) + 1;
+                            HttpCookie koek1 = new HttpCookie(id2);
+                            koek1["Val"] = inkr.ToString();
+                            Session["cookieSup"] = "and you have visited this site " + hits["Val"].ToString() + " times.";
+                            koek1.Expires = DateTime.Now.AddMonths(1);
+                            Response.Cookies.Add(koek1);
+                        }
+                        else
+                        {
+                            int tel = 2;
+                            HttpCookie hits1 = new HttpCookie(id2);
+                            hits1["Val"] = tel.ToString();
+                            Session["cookieSup"] = "and you have visited this site " + hits1["Val"].ToString() + " times.";
+                            hits1.Expires = DateTime.Now.AddMonths(1);
+                            Response.Cookies.Add(hits1);
+                        }
+                        //Response.Redirect(Request.Url.ToString());
+                        Response.Redirect("Home.aspx");
+                   
+                    }
                     //Label1.Text = "Welcome " + Session["Username"].ToString() + " to BookMyCallOut. You will now be able to use the Tickets Service!!   ";
                 }
                 else

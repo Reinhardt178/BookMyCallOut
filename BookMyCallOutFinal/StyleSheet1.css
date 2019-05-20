@@ -1,5 +1,6 @@
-﻿body{
-    background-color:darkgrey;
+﻿body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: darkgrey;
 }
 
 BookButton{
@@ -14,4 +15,7 @@ BookButton{
     background-color:black;
     color: white;
     text-align: center;
+}
+.container{
+    color:black;
 }
